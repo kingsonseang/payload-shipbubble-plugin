@@ -5,6 +5,7 @@ import payloadEsLintConfig from '@payloadcms/eslint-config'
 export const defaultESLintIgnores = [
   '**/.temp',
   '**/.*', // ignore all dotfiles
+  '**/.next/',
   '**/.git',
   '**/.hg',
   '**/.pnp.*',
@@ -23,6 +24,7 @@ export const defaultESLintIgnores = [
 ]
 
 export default [
+  { ignores: defaultESLintIgnores },
   ...payloadEsLintConfig,
   {
     rules: {

@@ -2,10 +2,9 @@
 /* DO NOT MODIFY IT BECAUSE IT COULD BE REWRITTEN AT ANY TIME. */
 import type { Metadata } from 'next'
 
+import { importMap } from '@/app/(payload)/admin/importMap'
 import config from '@payload-config'
 import { generatePageMetadata, RootPage } from '@payloadcms/next/views'
-
-import { importMap } from '../importMap.js'
 
 type Args = {
   params: Promise<{

@@ -1,0 +1,28 @@
+{
+  // Zed project settings — mirrors .vscode/settings.json
+  // Project settings: https://zed.dev/docs/configuring-zed#project-settings
+
+  // VSCode: "editor.formatOnSave": true + "editor.formatOnSaveMode": "file"
+  // Zed's "on" formats the whole buffer, so it maps 1:1.
+  "format_on_save": "on",
+
+  "languages": {
+    // VSCode: "editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" }
+    // format_on_save is inherited from the top-level setting above.
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TSX": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    }
+  }
+}

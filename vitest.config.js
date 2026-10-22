@@ -18,8 +18,10 @@ export default defineConfig(() => {
     ],
     test: {
       environment: 'node',
-      hookTimeout: 30_000,
-      testTimeout: 30_000,
+      // Booting the in-memory Mongo replica set can exceed 30s on a cold start.
+      hookTimeout: 180_000,
+      testTimeout: 180_000,
+      include: ['dev/int.spec.ts'],
     },
   }
 })

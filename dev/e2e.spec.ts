@@ -10,6 +10,9 @@ test('should render admin panel logo', async ({ page }) => {
   await page.click('.form-submit button')
 
   // should show dashboard
-  await expect(page).toHaveTitle(/Dashboard/)
-  await expect(page.locator('.graphic-icon')).toBeVisible()
+  // The admin bundle is compiled on first hit in dev, which can take longer than
+  // Playwright's 5s default assertion timeout, so give the post-login state room.
+  await expect(page).toHaveURL(/\/admin(\/collections)?/, { timeout: 60_000 })
+  await expect(page).toHaveTitle(/Dashboard/, { timeout: 60_000 })
+  await expect(page.locator('.graphic-icon')).toBeVisible({ timeout: 60_000 })
 })

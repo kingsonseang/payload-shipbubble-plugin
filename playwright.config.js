@@ -24,6 +24,12 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  /* A cold `next dev` compiles the admin bundle on first hit, so the default
+     30s per-test budget is not enough for the login step to even find fields. */
+  timeout: 180_000,
+  expect: {
+    timeout: 60_000,
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   projects: [
     {
@@ -42,5 +48,8 @@ export default defineConfig({
     command: 'pnpm dev',
     reuseExistingServer: true,
     url: 'http://localhost:3000/admin',
+    // A cold `next dev` compiles the whole admin bundle before /admin answers,
+    // which overruns Playwright's 60s default.
+    timeout: 300_000,
   },
 })

@@ -10,26 +10,22 @@
     "**/*.tsx",
     "../src/**/*.ts",
     "../src/**/*.tsx",
-    "next.config.mjs",
-    ".next/types/**/*.ts"
+    "next.config.ts",
+    ".next/types/**/*.ts",
   ],
   "compilerOptions": {
     "baseUrl": "./",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "paths": {
-      "@payload-config": [
-        "./payload.config.ts"
-      ],
-      "payload-shipbubble-plugin": [
-        "../src/index.ts"
-      ],
-      "payload-shipbubble-plugin/client": [
-        "../src/exports/client.ts"
-      ],
-      "payload-shipbubble-plugin/rsc": [
-        "../src/exports/rsc.ts"
-      ]
+      "@payload-config": ["./payload.config.ts"],
+      "@/payload-types": ["./payload-types.ts"],
+      "@/*": ["./*"],
+      "payload-shipbubble-plugin": ["../src/index.ts"],
+      "payload-shipbubble-plugin/client": ["../src/exports/client.ts"],
+      "payload-shipbubble-plugin/rsc": ["../src/exports/rsc.ts"],
     },
     "noEmit": true,
     "emitDeclarationOnly": false,
-  }
+  },
 }
